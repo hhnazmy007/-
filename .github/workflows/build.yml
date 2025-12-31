@@ -44,8 +44,15 @@ jobs:
       run: cordova platform add android || true
       continue-on-error: true
     
+    - name: Setup Gradle
+      run: |
+        cd platforms/android
+        chmod +x gradlew || true
+        cd ../..
+      continue-on-error: true
+    
     - name: Build Android Debug APK
-      run: cordova build android --debug
+      run: cordova build android --debug --verbose
     
     - name: Build Android Release APK
       run: cordova build android --release
