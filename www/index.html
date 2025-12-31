@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <title>إدارة مديونيات</title>
+  <link rel="icon" href="شعار.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="splash">
+    <img src="شعار.png" alt="شعار" class="logo">
+    <div class="app-title">إدارة مديونيات</div>
+    <div class="company-name">الماسة للزجاج</div>
+  </div>
+  <div class="app">
+    <header class="topbar">
+      <div class="header-top">
+        <img src="شعار.png" alt="شعار" class="header-logo">
+        <div class="company-info">
+          <div class="company-name-header">الماسة للزجاج</div>
+          <div class="app-subtitle">إدارة المديونيات</div>
+        </div>
+      </div>
+      <div class="total-row">
+        <span>إجمالي المديونيات:</span>
+        <strong id="grandTotal">0.00</strong>
+      </div>
+      <button id="importBtn" class="primary">استيراد اسم من السجل</button>
+    </header>
+    <main>
+      <ul id="peopleList" class="list"></ul>
+    </main>
+  </div>
+
+  <div id="importModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">استيراد اسم من السجل</div>
+      <div class="modal-body">
+        <input id="nameInput" class="input" type="text" placeholder="اكتب الاسم">
+        <div class="hint">يمكنك الكتابة لاختيار اسم من جهات الاتصال</div>
+        <ul id="suggestions" class="suggestions"></ul>
+      </div>
+      <div class="modal-actions">
+        <button id="addNameBtn" class="primary">إضافة</button>
+        <button data-close class="secondary">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="debtModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">تسجيل مديونية</div>
+      <div class="modal-body">
+        <input id="debtAmount" class="input" type="number" min="0" step="0.01" placeholder="المبلغ">
+      </div>
+      <div class="modal-actions">
+        <button id="debtOk" class="primary">موافق</button>
+        <button data-close class="secondary">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="payModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">سداد</div>
+      <div class="modal-body">
+        <input id="payAmount" class="input" type="number" min="0" step="0.01" placeholder="المبلغ">
+      </div>
+      <div class="modal-actions">
+        <button id="payOk" class="primary">موافق</button>
+        <button data-close class="secondary">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="showModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">عرض</div>
+      <div class="modal-body">
+        <table class="table" id="ledgerTable">
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>المبلغ</th>
+              <th>التاريخ</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="modal-actions">
+        <button data-close class="primary">موافق</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="finalModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">نهائي</div>
+      <div class="modal-body">
+        <div class="final-row">
+          <span>المبلغ المستحق على</span>
+          <strong id="finalPerson"></strong>
+        </div>
+        <div class="final-row">
+          <span>الإجمالي:</span>
+          <strong id="finalAmount">0.00</strong>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button data-close class="primary">موافق</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="cordova.js"></script>
+  <script src="app.js"></script>
+</body>
+<noscript>الرجاء تفعيل الجافاسكربت</noscript>
+</html>

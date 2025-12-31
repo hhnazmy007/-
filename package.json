@@ -1,0 +1,27 @@
+{
+  "name": "mdiyoniyat-app",
+  "version": "1.0.0",
+  "displayName": "إدارة مديونيات",
+  "description": "تطبيق إدارة المديونيات",
+  "main": "index.html",
+  "scripts": {
+    "build": "cordova build android",
+    "run": "cordova run android",
+    "prepare": "cordova prepare android"
+  },
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.1",
+    "cordova-plugin-contacts": "~3.0.1"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-contacts": {
+        "CONTACTS_USAGE_DESCRIPTION": "لاستيراد أسماء من جهات الاتصال"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}
